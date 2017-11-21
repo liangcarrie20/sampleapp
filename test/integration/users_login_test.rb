@@ -29,6 +29,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
+    assert_not_empty cookies['remember_token']
     assert_equal :ringo, assigns(:user).ringo
   end
 
